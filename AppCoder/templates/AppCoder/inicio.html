@@ -1,0 +1,62 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">hidrocultivar</h1>
+                            <!-- Signup form-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <!--<h1>Este es el título del Inicio que cambio</h1>-->
+  
+
+    <h3>Buscar canal:</h3>
+
+    <form action="/AppCoder/buscar/" method="GET">
+
+        <input type="number" name="camada" id="camada">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if cursos %}
+
+    <p>Estamos buscando el: {{camada}}</p>
+
+    <ul>
+	{% for curso in cursos %}
+		<li> {{curso.nombre}} </li>
+		<li> {{curso.camada}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
